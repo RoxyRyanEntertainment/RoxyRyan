@@ -89,7 +89,7 @@
 .features{ padding: 64px 0; border-bottom: 1px solid var(--line); }
 .features-grid{
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 .feature{
@@ -155,7 +155,7 @@
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns: 1fr; }
   .hero-media{ order: -1; }
-  .features-grid{ grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
+  .features-grid{ grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
   .photo-strip{ grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 560px){

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Roxy Ryan Entertainment</title>
-<meta name="description" content="Neem contact op met Roxy Ryan Entertainment voor bookings, vragen of samenwerkingen.">
+<title>Video's | Roxy Ryan Entertainment</title>
+<meta name="description" content="Bekijk video's van de shows en nummers van Roxy Ryan.">
 <link rel="icon" href="images/logo.png">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pages.css">
@@ -35,63 +35,61 @@
 
 <main>
   <section class="page-hero" style="border-bottom:none;">
-    <span class="eyebrow-script">Zeg hallo</span>
-    <h1>Contact</h1>
-    <p>Vragen, samenwerkingen of gewoon een babbeltje? Roxy hoort graag van je.</p>
+    <span class="eyebrow-script">Roxy on stage</span>
+    <h1>Video's</h1>
+    <p>Een indruk van de nummers en optredens van Roxy Ryan — in beweging en met geluid.</p>
   </section>
 
-  <section style="padding-top:0;">
-    <div class="wrap contact-grid">
-      <div class="contact-cards">
-        <div class="contact-card">
-          <span class="ic">✉</span>
-          <div>
-            <h4>E-mail</h4>
-            <a href="mailto:lcolignon@gmail.com">lcolignon@gmail.com</a>
-          </div>
-        </div>
-        <div class="contact-card">
-          <span class="ic">☎</span>
-          <div>
-            <h4>Telefoon</h4>
-            <a href="tel:+32497198857">+32 497 19 88 57</a>
-          </div>
-        </div>
-        <div class="contact-card">
-          <span class="ic">📍</span>
-          <div>
-            <h4>Regio</h4>
-            <p>België — beschikbaar voor events in heel Vlaanderen en daarbuiten in overleg</p>
-          </div>
-        </div>
-        <div class="contact-card">
-          <span class="ic">☆</span>
-          <div>
-            <h4>Volg Roxy</h4>
-            <p>Facebook · Instagram · TikTok — links in de footer hieronder</p>
-          </div>
-        </div>
-      </div>
+  <!--
+    HOE EEN VIDEO TOEVOEGEN
+    ========================
+    Zet je video eerst op YouTube (kan als "niet vermeld" i.p.v. openbaar).
+    Klik op "Delen" -> "Insluiten" en kopieer de src-URL uit de embed-code
+    (ziet er ongeveer zo uit: https://www.youtube.com/embed/VIDEO-ID).
+    Vervang dan hieronder één van de video-slot.empty blokken door:
 
-      <form class="booking-form" style="grid-template-columns:1fr;">
-        <div>
-          <label for="c-naam">Naam</label>
-          <input type="text" id="c-naam" placeholder="Je naam" required>
-        </div>
-        <div>
-          <label for="c-email">E-mailadres</label>
-          <input type="email" id="c-email" placeholder="jij@voorbeeld.be" required>
-        </div>
-        <div>
-          <label for="c-bericht">Bericht</label>
-          <textarea id="c-bericht" placeholder="Waarmee kunnen we helpen?"></textarea>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-primary">Bericht versturen &nbsp;→</button>
-        </div>
-        <div class="booking-confirm" hidden>Bedankt voor je bericht! We nemen snel contact op.</div>
-      </form>
+    <div class="video-slot">
+      <iframe src="https://www.youtube.com/embed/VIDEO-ID"
+        title="Naam van de video" allowfullscreen loading="lazy"></iframe>
     </div>
+    <p class="video-caption">Titel van deze video</p>
+  -->
+
+  <section style="padding-top:0;">
+    <div class="wrap video-grid">
+      <div>
+        <div class="video-slot empty">
+          <span class="play-ic">▶</span>
+          <span>Video volgt hier</span>
+        </div>
+        <p class="video-caption">Titel van de video</p>
+      </div>
+      <div>
+        <div class="video-slot empty">
+          <span class="play-ic">▶</span>
+          <span>Video volgt hier</span>
+        </div>
+        <p class="video-caption">Titel van de video</p>
+      </div>
+      <div>
+        <div class="video-slot empty">
+          <span class="play-ic">▶</span>
+          <span>Video volgt hier</span>
+        </div>
+        <p class="video-caption">Titel van de video</p>
+      </div>
+      <div>
+        <div class="video-slot empty">
+          <span class="play-ic">▶</span>
+          <span>Video volgt hier</span>
+        </div>
+        <p class="video-caption">Titel van de video</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align:center;border-top:none;padding-top:0;">
+    <p style="color:var(--muted);margin-bottom:24px;">Liever alle video's op één plek bekijken? Volg Roxy op Instagram of TikTok via de iconen in de footer.</p>
   </section>
 </main>
 

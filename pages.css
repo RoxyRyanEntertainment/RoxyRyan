@@ -274,7 +274,7 @@ section + section{ border-top: 1px solid var(--line); }
 .video-grid{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 48px 26px;
+  gap: 70px 30px;
 }
 .video-slot{
   position: relative;
@@ -309,11 +309,19 @@ section + section{ border-top: 1px solid var(--line); }
   font-size: 1.1rem;
 }
 .video-caption{
-  margin: 0 0 14px;
+  width: 100%;
+  margin: 0 0 18px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--gold-light);
   font-family: var(--serif);
+}
+.video-credit{
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 /* ---------- Contact ---------- */

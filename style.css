@@ -137,6 +137,7 @@ button{ font-family: inherit; cursor: pointer; }
   font-size: 0.85rem;
   transition: border-color 0.2s, color 0.2s;
 }
+.nav-social a svg{ display: block; }
 .nav-social a:hover{ border-color: var(--pink); color: var(--pink); }
 
 .nav-toggle{

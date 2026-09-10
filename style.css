@@ -265,6 +265,18 @@ button{ font-family: inherit; cursor: pointer; }
   color: var(--muted);
 }
 .footer-bottom .heart{ color: var(--pink); }
+.footer-visitor-counter{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold-light);
+}
+.footer-visitor-counter .icon{ color: var(--pink); }
+.footer-visitor-counter #visitor-count{
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--gold);
+}
 
 /* ---------- buttons ---------- */
 .btn{

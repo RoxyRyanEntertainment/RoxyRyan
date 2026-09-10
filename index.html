@@ -58,20 +58,13 @@
         </div>
       </div>
     </div>
-    <div class="wrap">
-      <div class="visitor-counter">
-        <span class="visitor-counter-icon">✦</span>
-        <span id="visitor-count">…</span>
-        <span class="visitor-counter-label">bezoekers</span>
-      </div>
-    </div>
   </section>
 
   <!-- FEATURES STRIP -->
   <section class="features">
     <div class="wrap features-grid">
       <a href="bookings.html" class="feature">
-        <span class="feature-icon">🥂</span>
+        <span class="feature-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l1.5 8.5a3 3 0 0 0 3 2.5h0a3 3 0 0 0 3-2.5L15 3"/><path d="M6 3h5"/><path d="M13.5 5.5L19 3"/><path d="M19 3l1.5 5a2.3 2.3 0 0 1-2 3h0a2.3 2.3 0 0 1-2.3-2.2"/><line x1="10.5" y1="14" x2="10.5" y2="20"/><line x1="7.5" y1="21" x2="13.5" y2="21"/><line x1="16.7" y1="11" x2="16.7" y2="20"/><line x1="14.5" y1="21" x2="19" y2="21"/></svg></span>
         <h3>Events</h3>
         <p>Van privéfeest tot bedrijfsevent. Roxy Ryan zorgt voor een onvergetelijke ervaring.</p>
       </a>
@@ -81,7 +74,7 @@
         <p>Boek Roxy Ryan voor jouw feest, event, festival of gelegenheid. Let's make it fabulous!</p>
       </a>
       <a href="galerij.html" class="feature">
-        <span class="feature-icon">📷</span>
+        <span class="feature-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3.2l1.6-2.4a1 1 0 0 1 .8-.6h6.8a1 1 0 0 1 .8.6L18.8 6H21a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="3.6"/></svg></span>
         <h3>Galerij</h3>
         <p>Een kijkje achter de schermen of genieten van de mooiste podiummomenten?</p>
       </a>
@@ -130,22 +123,12 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Roxy Ryan Entertainment — Alle rechten voorbehouden</span>
+      <span class="footer-visitor-counter"><span class="icon">✦</span> <span id="visitor-count">…</span> bezoekers</span>
       <span><span class="heart">♡</span> Glitter makes everything better</span>
     </div>
   </div>
 </footer>
 
 <script src="script.js"></script>
-<script>
-  (function(){
-    var el = document.getElementById('visitor-count');
-    if (!el) return;
-    var ns = (location.hostname || 'roxyryan-site').replace(/[^a-z0-9]/gi, '-');
-    fetch('https://api.countapi.xyz/hit/' + ns + '/site-visits')
-      .then(function(r){ return r.json(); })
-      .then(function(d){ el.textContent = d.value.toLocaleString('nl-BE'); })
-      .catch(function(){ el.textContent = '—'; });
-  })();
-</script>
 </body>
 </html>

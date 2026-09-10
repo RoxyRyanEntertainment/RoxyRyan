@@ -48,6 +48,29 @@
 }
 .hero-actions{ display: flex; gap: 16px; flex-wrap: wrap; }
 
+.visitor-counter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--gold-light);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.visitor-counter-icon{ color: var(--pink); }
+#visitor-count{
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: var(--gold);
+}
+
 .hero-media{ display: flex; justify-content: center; }
 .hero-photo-frame{
   position: relative;

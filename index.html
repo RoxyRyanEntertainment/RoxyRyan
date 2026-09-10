@@ -58,6 +58,13 @@
         </div>
       </div>
     </div>
+    <div class="wrap">
+      <div class="visitor-counter">
+        <span class="visitor-counter-icon">✦</span>
+        <span id="visitor-count">…</span>
+        <span class="visitor-counter-label">bezoekers</span>
+      </div>
+    </div>
   </section>
 
   <!-- FEATURES STRIP -->
@@ -129,5 +136,16 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  (function(){
+    var el = document.getElementById('visitor-count');
+    if (!el) return;
+    var ns = (location.hostname || 'roxyryan-site').replace(/[^a-z0-9]/gi, '-');
+    fetch('https://api.countapi.xyz/hit/' + ns + '/site-visits')
+      .then(function(r){ return r.json(); })
+      .then(function(d){ el.textContent = d.value.toLocaleString('nl-BE'); })
+      .catch(function(){ el.textContent = '—'; });
+  })();
+</script>
 </body>
 </html>

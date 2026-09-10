@@ -5,6 +5,22 @@
 section{ padding: 80px 0; }
 section + section{ border-top: 1px solid var(--line); }
 
+/* ---------- Brand showcase (groot logo) ---------- */
+.brand-showcase{ text-align: center; }
+.brand-showcase img{
+  width: 240px;
+  height: auto;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 14px 34px rgba(255,47,158,0.4));
+}
+.brand-showcase span{
+  font-family: var(--script);
+  font-size: clamp(2rem, 1.6rem + 1.4vw, 2.4rem);
+  color: var(--pink);
+  text-shadow: 0 0 16px rgba(255,47,158,0.4);
+  display: block;
+}
+
 /* ---------- Over Roxy: bio ---------- */
 .bio-grid{
   display: grid;

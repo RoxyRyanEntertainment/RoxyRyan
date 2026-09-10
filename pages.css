@@ -10,7 +10,7 @@ section + section{ border-top: 1px solid var(--line); }
 .brand-showcase img{
   width: 240px;
   height: auto;
-  margin: 0 auto 20px;
+  margin: 20px auto 0;
   filter: drop-shadow(0 14px 34px rgba(255,47,158,0.4));
 }
 .brand-showcase span{

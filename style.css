@@ -159,11 +159,11 @@ button{ font-family: inherit; cursor: pointer; }
 }
 .eyebrow-script{
   font-family: var(--script);
-  font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.5rem);
+  font-size: clamp(2.3rem, 1.7rem + 2vw, 3rem);
   color: var(--pink);
-  text-shadow: 0 0 16px rgba(255,47,158,0.4);
+  text-shadow: 0 0 18px rgba(255,47,158,0.4);
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .page-hero h1{
   font-family: var(--serif);
@@ -293,7 +293,7 @@ button{ font-family: inherit; cursor: pointer; }
 
 /* ---------- section heading helper ---------- */
 .section-head{ text-align: center; max-width: 620px; margin: 0 auto 50px; }
-.section-head .eyebrow-script{ font-size: clamp(1.7rem, 1.3rem + 1.2vw, 2.2rem); }
+.section-head .eyebrow-script{ font-size: clamp(2rem, 1.5rem + 1.6vw, 2.5rem); }
 .section-head h2{
   font-family: var(--serif);
   font-weight: 700;

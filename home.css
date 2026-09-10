@@ -150,7 +150,7 @@
   flex-direction: column;
   gap: 16px;
 }
-.cta-tile .eyebrow-script{ font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.3rem); margin: 0; }
+.cta-tile .eyebrow-script{ font-size: clamp(2.2rem, 1.7rem + 1.8vw, 2.7rem); margin: 0; }
 
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns: 1fr; }

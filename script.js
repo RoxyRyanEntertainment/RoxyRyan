@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const countEl = document.getElementById('visitor-count');
   if (countEl){
     const ns = (location.hostname || 'roxyryan-site').replace(/[^a-z0-9]/gi, '-');
-    fetch('https://api.countapi.xyz/hit/' + ns + '/site-visits')
+    fetch('https://abacus.jasoncameron.dev/hit/' + ns + '/site-visits')
       .then(r => r.json())
       .then(d => { countEl.textContent = d.value.toLocaleString('nl-BE'); })
       .catch(() => { countEl.textContent = '—'; });

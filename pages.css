@@ -345,6 +345,25 @@ section + section{ border-top: 1px solid var(--line); }
 .contact-card p, .contact-card a{ margin: 0; color: var(--muted); font-size: 0.92rem; }
 .contact-card a:hover{ color: var(--pink); }
 
+.list-icons{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list-icons li{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+.list-icons li:last-child{ margin-bottom: 0; }
+.list-icons .ic-gold{
+  flex: none;
+  display: inline-flex;
+  color: var(--gold);
+}
+
 @media (max-width: 900px){
   .bio-grid, .booking-grid, .contact-grid{ grid-template-columns: 1fr; }
   .stats-row{ grid-template-columns: repeat(2, 1fr); row-gap: 30px; }

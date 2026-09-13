@@ -364,6 +364,27 @@ section + section{ border-top: 1px solid var(--line); }
   color: var(--gold);
 }
 
+.insta-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px 40px;
+}
+.insta-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+.insta-item blockquote.instagram-media{
+  margin: 0 auto !important;
+}
+.insta-item .video-caption{
+  margin: 1.5cm 0 0 !important;
+}
+
 @media (max-width: 900px){
   .bio-grid, .booking-grid, .contact-grid{ grid-template-columns: 1fr; }
   .stats-row{ grid-template-columns: repeat(2, 1fr); row-gap: 30px; }

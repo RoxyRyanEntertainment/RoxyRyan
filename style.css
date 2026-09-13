@@ -86,7 +86,7 @@ button{ font-family: inherit; cursor: pointer; }
   gap: 12px;
   flex-shrink: 0;
 }
-.brand img{ height: 92px; width: auto; }
+.brand img{ height: 116px; width: auto; }
 
 .nav-links{
   display: flex;
@@ -196,14 +196,29 @@ button{ font-family: inherit; cursor: pointer; }
   gap: 40px;
   margin-bottom: 40px;
 }
-.footer-brand{ display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
-.footer-brand img{ height: 104px; width: auto; }
+.footer-brand{ display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+.footer-brand img{ height: 134px; width: auto; }
 .footer-brand .tag{
   font-family: var(--script);
   color: var(--pink);
   font-size: 2.1rem;
   text-shadow: 0 0 16px rgba(255,47,158,0.4);
 }
+.footer-social{
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+}
+.footer-social a{
+  width: 34px; height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-light);
+  transition: border-color 0.2s, color 0.2s;
+}
+.footer-social a svg{ display: block; }
+.footer-social a:hover{ border-color: var(--pink); color: var(--pink); }
 .footer-col h4{
   font-family: var(--serif);
   color: var(--gold-light);

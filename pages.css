@@ -401,6 +401,11 @@ section + section{ border-top: 1px solid var(--line); }
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   opacity: 0.75;
 }
+.event-empty{
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
 
 /* ---------- Contact ---------- */
 .contact-grid{

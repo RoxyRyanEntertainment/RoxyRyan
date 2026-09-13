@@ -375,10 +375,15 @@ section + section{ border-top: 1px solid var(--line); }
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 340px;
+  max-width: 360px;
   text-align: center;
 }
-.insta-item blockquote.instagram-media{
+.insta-item > *{
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.insta-item blockquote.instagram-media,
+.insta-item iframe{
   margin: 0 auto !important;
 }
 .insta-item .video-caption{

@@ -108,7 +108,7 @@ section + section{ border-top: 1px solid var(--line); }
   transition: transform 0.2s, border-color 0.2s;
 }
 .show-card:hover{ transform: translateY(-4px); border-color: var(--pink); }
-.show-card .show-icon{ font-size: 1.6rem; color: var(--pink); margin-bottom: 16px; display: block; }
+.show-card .show-icon{ font-size: 1.6rem; color: var(--gold); margin-bottom: 16px; display: block; }
 .show-card h3{
   font-family: var(--serif);
   color: var(--gold-light);
@@ -325,6 +325,67 @@ section + section{ border-top: 1px solid var(--line); }
   font-size: 0.92rem;
 }
 
+/* ---------- Agenda / events ---------- */
+.event-card{
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+.event-date{
+  display: block;
+  font-family: var(--script);
+  color: var(--pink);
+  font-size: 1.3rem;
+  text-shadow: 0 0 14px rgba(255,47,158,0.35);
+  margin-bottom: 10px;
+}
+.event-title{
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 1.05rem + 1.1vw, 1.75rem);
+  line-height: 1.35;
+  margin: 0 0 32px;
+  background: linear-gradient(120deg, var(--gold-light), var(--gold) 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.event-flyer{
+  max-width: 340px;
+  margin: 0 auto 32px;
+  border-radius: 14px;
+  padding: 3px;
+  background: linear-gradient(150deg, var(--gold), var(--pink) 60%, var(--gold-light));
+}
+.event-flyer img{ width: 100%; display: block; border-radius: 12px; }
+.event-desc{
+  color: var(--muted);
+  text-align: left;
+  margin: 0 0 26px;
+}
+.event-meta{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  color: var(--cream);
+  font-size: 0.92rem;
+}
+.event-meta-item{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.event-meta-item .ic-gold{ margin-top: 2px; }
+.event-divider{
+  border: none;
+  height: 1px;
+  max-width: 220px;
+  margin: 64px auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.75;
+}
+
 /* ---------- Contact ---------- */
 .contact-grid{
   display: grid;
@@ -340,10 +401,35 @@ section + section{ border-top: 1px solid var(--line); }
   gap: 16px;
   align-items: flex-start;
 }
-.contact-card .ic{ color: var(--pink); font-size: 1.2rem; }
+.contact-card .ic{ color: var(--gold); font-size: 1.2rem; display: inline-flex; }
 .contact-card h4{ margin: 0 0 6px; color: var(--gold-light); font-family: var(--serif); font-size: 1rem; }
 .contact-card p, .contact-card a{ margin: 0; color: var(--muted); font-size: 0.92rem; }
 .contact-card a:hover{ color: var(--pink); }
+
+.list-check{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list-check li{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+.list-check li:last-child{ margin-bottom: 0; }
+.list-check li span{
+  flex: none;
+  display: inline-flex;
+  color: var(--gold);
+  margin-top: 3px;
+}
+.list-check-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 30px;
+}
 
 .list-icons{
   list-style: none;
@@ -402,4 +488,5 @@ section + section{ border-top: 1px solid var(--line); }
   .shows-grid{ grid-template-columns: 1fr; }
   .process-list{ grid-template-columns: 1fr; }
   .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
+  .list-check-grid{ grid-template-columns: 1fr; }
 }

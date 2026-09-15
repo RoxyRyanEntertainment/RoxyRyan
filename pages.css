@@ -407,6 +407,79 @@ section + section{ border-top: 1px solid var(--line); }
   font-size: 1.05rem;
 }
 
+/* Flyer met voor- en achterkant naast elkaar */
+.event-flyer-pair{
+  display: flex;
+  gap: 14px;
+  max-width: 620px;
+  margin: 0 auto 32px;
+}
+.event-flyer-pair .event-flyer{
+  max-width: none;
+  flex: 1 1 0;
+  margin: 0;
+}
+
+/* Inklapbare volledige datumlijst (voor shows met veel vaste data) */
+.event-dates{
+  max-width: 480px;
+  margin: 28px auto 0;
+  text-align: left;
+}
+.event-dates summary{
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  background: rgba(201,161,92,0.08);
+  color: var(--gold-light);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+.event-dates summary::-webkit-details-marker{ display: none; }
+.event-dates summary::marker{ content: ""; }
+.event-dates summary .chevron{
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.event-dates[open] summary .chevron{ transform: rotate(180deg); }
+.event-dates[open] summary{ border-radius: 20px 20px 0 0; }
+.event-dates-list{
+  list-style: none;
+  margin: 0;
+  padding: 18px 22px 20px;
+  border: 1px solid rgba(201,161,92,0.35);
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  columns: 2;
+  column-gap: 28px;
+  color: var(--cream);
+  font-size: 0.9rem;
+}
+.event-dates-list li{
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(201,161,92,0.2);
+  break-inside: avoid;
+}
+.event-dates-list li:last-child,
+.event-dates-list li:nth-last-child(2){
+  border-bottom: none;
+}
+.event-dates-list .note{
+  color: var(--pink);
+  font-weight: 600;
+}
+@media (max-width: 560px){
+  .event-flyer-pair{ flex-direction: column; }
+  .event-dates-list{ columns: 1; }
+}
+
 /* ---------- Contact ---------- */
 .contact-grid{
   display: grid;

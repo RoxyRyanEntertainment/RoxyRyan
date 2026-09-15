@@ -367,12 +367,15 @@ section + section{ border-top: 1px solid var(--line); }
   color: transparent;
 }
 .event-flyer{
-  max-width: 340px;
+  max-width: 460px;
   margin: 0 auto 32px;
   border-radius: 14px;
   padding: 3px;
   background: linear-gradient(150deg, var(--gold), var(--pink) 60%, var(--gold-light));
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
 }
+.event-flyer:hover{ transform: scale(1.015); }
 .event-flyer img{ width: 100%; display: block; border-radius: 12px; }
 .event-desc{
   color: var(--muted);
@@ -407,16 +410,16 @@ section + section{ border-top: 1px solid var(--line); }
   font-size: 1.05rem;
 }
 
-/* Flyer met voor- en achterkant naast elkaar */
+/* Flyer met voor- en achterkant, onder elkaar en groot */
 .event-flyer-pair{
   display: flex;
-  gap: 14px;
-  max-width: 620px;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 460px;
   margin: 0 auto 32px;
 }
 .event-flyer-pair .event-flyer{
   max-width: none;
-  flex: 1 1 0;
   margin: 0;
 }
 
@@ -476,7 +479,6 @@ section + section{ border-top: 1px solid var(--line); }
   font-weight: 600;
 }
 @media (max-width: 560px){
-  .event-flyer-pair{ flex-direction: column; }
   .event-dates-list{ columns: 1; }
 }
 

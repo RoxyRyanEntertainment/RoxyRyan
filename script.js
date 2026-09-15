@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Simple lightbox for gallery
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  // Simple lightbox for gallery + agenda flyers
+  const galleryItems = document.querySelectorAll('.gallery-item, .event-flyer');
   const lightbox = document.querySelector('.lightbox');
   if (galleryItems.length && lightbox){
     const lightboxImg = lightbox.querySelector('img');

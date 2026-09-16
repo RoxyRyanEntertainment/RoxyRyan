@@ -149,8 +149,15 @@
   background: radial-gradient(circle at 50% 40%, #2a0f1e, var(--black-2));
   flex-direction: column;
   gap: 16px;
+  container-type: inline-size;
+  padding: 0 16px;
+  text-align: center;
 }
-.cta-tile .eyebrow-script{ font-size: clamp(2.2rem, 1.7rem + 1.8vw, 2.7rem); margin: 0; }
+.cta-tile .eyebrow-script{
+  font-size: clamp(1.4rem, 1rem + 9cqi, 2.7rem);
+  line-height: 1.15;
+  margin: 0;
+}
 
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns: 1fr; }

@@ -495,13 +495,25 @@ section + section{ border-top: 1px solid var(--line); }
 .contact-card{
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 24px 26px;
+  padding: 26px 28px;
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
+  gap: 22px;
+  align-items: center;
 }
-.contact-card .ic{ color: var(--gold); font-size: 1.2rem; display: inline-flex; }
-.contact-card h4{ margin: 0 0 6px; color: var(--gold-light); font-family: var(--serif); font-size: 1rem; }
+.contact-card .ic{
+  flex: none;
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  background: rgba(201,161,92,0.10);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+.contact-card .ic svg{ width: 24px; height: 24px; }
+.contact-card h4{ margin: 0 0 6px; color: var(--gold-light); font-family: var(--serif); font-size: 1.05rem; }
 .contact-card p, .contact-card a{ margin: 0; color: var(--muted); font-size: 0.92rem; }
 .contact-card a:hover{ color: var(--pink); }
 

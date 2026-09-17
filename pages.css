@@ -108,7 +108,19 @@ section + section{ border-top: 1px solid var(--line); }
   transition: transform 0.2s, border-color 0.2s;
 }
 .show-card:hover{ transform: translateY(-4px); border-color: var(--pink); }
-.show-card .show-icon{ font-size: 1.6rem; color: var(--gold); margin-bottom: 16px; display: block; }
+.show-card .show-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: rgba(201,161,92,0.10);
+  border: 1px solid var(--line);
+  color: var(--gold-light);
+}
+.show-card .show-icon svg{ width: 22px; height: 22px; }
 .show-card h3{
   font-family: var(--serif);
   color: var(--gold-light);

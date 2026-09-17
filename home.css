@@ -98,11 +98,19 @@
   color: var(--cream);
 }
 .feature-icon{
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: rgba(201,161,92,0.10);
+  border: 1px solid var(--line);
   font-size: 1.7rem;
-  color: var(--gold);
-  margin-bottom: 14px;
+  color: var(--gold-light);
 }
+.feature-icon svg{ width: 28px; height: 28px; }
 .feature h3{
   font-family: var(--serif);
   font-size: 1.05rem;

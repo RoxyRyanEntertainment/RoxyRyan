@@ -201,27 +201,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const colors = ['#ff2f9e', '#c9a15c', '#e6cd94', '#8e3fd1', '#ffffff'];
     const isSmall = window.innerWidth < 700;
     const spawn = () => {
-      if (document.hidden || layer.childElementCount > (isSmall ? 18 : 35)) return;
+      if (document.hidden || layer.childElementCount > (season === 'kerst' ? (isSmall ? 18 : 35) : (isSmall ? 6 : 12))) return;
       const bit = document.createElement('span');
-      const dur = season === 'kerst' ? 9 + Math.random() * 7 : 5 + Math.random() * 4;
+      const dur = season === 'kerst' ? 9 + Math.random() * 7 : 9 + Math.random() * 5;
       bit.className = 'season-bit ' + (season === 'kerst' ? 'snow' : 'confetti');
       if (season === 'kerst'){
         const s = 3 + Math.random() * 5;
         bit.style.width = bit.style.height = s + 'px';
         bit.style.opacity = 0.5 + Math.random() * 0.5;
       } else {
-        bit.style.width = (5 + Math.random() * 5) + 'px';
-        bit.style.height = (8 + Math.random() * 6) + 'px';
+        bit.style.width = (4 + Math.random() * 3) + 'px';
+        bit.style.height = (6 + Math.random() * 4) + 'px';
+        bit.style.opacity = 0.55 + Math.random() * 0.35;
         bit.style.background = colors[Math.floor(Math.random() * colors.length)];
       }
       bit.style.left = (Math.random() * 100) + 'vw';
       bit.style.animationDuration = dur + 's';
       bit.style.setProperty('--drift', (Math.random() * 120 - 60) + 'px');
-      bit.style.setProperty('--spin', (season === 'kerst' ? 0 : Math.random() * 720 - 360) + 'deg');
+      bit.style.setProperty('--spin', (season === 'kerst' ? 0 : Math.random() * 360 - 180) + 'deg');
       layer.appendChild(bit);
       setTimeout(() => bit.remove(), dur * 1000 + 100);
     };
-    setInterval(spawn, season === 'kerst' ? 420 : 300);
+    setInterval(spawn, season === 'kerst' ? 420 : 900);
   }
 
   // Geheim woord: typ "roxy" (of tik 5 keer op het logo onderaan) voor een pluimenregen

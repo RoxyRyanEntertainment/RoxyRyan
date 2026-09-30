@@ -259,7 +259,59 @@ button{ font-family: inherit; cursor: pointer; }
   font-size: 0.8rem;
   color: var(--muted);
 }
-.footer-bottom .heart{ color: var(--pink); }
+.footer-bottom .heart{
+  background: none; border: 0; padding: 4px; margin: -4px 0; cursor: inherit;
+  color: var(--pink); vertical-align: -3px; line-height: 0; border-radius: 50%;
+}
+.footer-bottom .heart svg{
+  fill: transparent; stroke: currentColor; stroke-width: 1.6;
+  transition: fill .25s ease, filter .25s ease, transform .2s ease;
+}
+.footer-bottom .heart:hover svg{ transform: scale(1.15); }
+.footer-bottom .heart.is-on svg{
+  fill: var(--pink);
+  filter: drop-shadow(0 0 6px rgba(255,47,158,0.8));
+  animation: heart-pop .45s ease;
+}
+@keyframes heart-pop{
+  0%{ transform: scale(1); } 40%{ transform: scale(1.5); } 70%{ transform: scale(.9); } 100%{ transform: scale(1); }
+}
+.heart-burst{
+  position: fixed; pointer-events: none; z-index: 9999;
+  font-size: 12px; color: var(--pink); line-height: 1;
+  animation: heart-burst .8s ease-out forwards;
+}
+@keyframes heart-burst{
+  from{ opacity: 1; transform: translate(-50%,-50%) scale(1); }
+  to{ opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.4); }
+}
+
+/* ---------- toverstafje als cursor (enkel met muis) ---------- */
+@media (hover: hover) and (pointer: fine){
+  html, a, button, summary, label, .gallery-item, .event-flyer{
+    cursor: url("images/wand.png") 7 7, auto;
+  }
+  input, textarea{ cursor: text; }
+}
+.wand-sparkle{
+  position: fixed; pointer-events: none; z-index: 9999;
+  width: 8px; height: 8px; margin: -4px 0 0 -4px;
+  background: radial-gradient(circle, #fff6d8 0 20%, #f2c96e 45%, transparent 70%);
+  animation: wand-sparkle .7s ease-out forwards;
+}
+.wand-sparkle.star{
+  width: auto; height: auto; margin: 0; background: none;
+  color: #f2c96e; font-size: 10px; line-height: 1;
+  text-shadow: 0 0 4px rgba(242,201,110,.9);
+}
+@keyframes wand-sparkle{
+  from{ opacity: 1; transform: translate(0,0) scale(1); }
+  to{ opacity: 0; transform: translate(var(--dx), 18px) scale(.3); }
+}
+@media (prefers-reduced-motion: reduce){
+  .wand-sparkle, .heart-burst{ display: none; }
+  .footer-bottom .heart.is-on svg{ animation: none; }
+}
 
 /* ---------- buttons ---------- */
 .btn{

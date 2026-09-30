@@ -99,4 +99,57 @@ document.addEventListener('DOMContentLoaded', () => {
       emptyMsg.hidden = false;
     }
   }
+
+  // Hartje onderaan: aanklikken kleurt het roze (wordt onthouden in deze browser)
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const heart = document.querySelector('.footer-bottom .heart');
+  if (heart){
+    let liked = false;
+    try { liked = localStorage.getItem('roxy-heart') === '1'; } catch (e) {}
+    const setHeart = (on) => {
+      heart.classList.toggle('is-on', on);
+      heart.setAttribute('aria-pressed', on ? 'true' : 'false');
+    };
+    setHeart(liked);
+    heart.addEventListener('click', () => {
+      liked = !liked;
+      setHeart(liked);
+      try { localStorage.setItem('roxy-heart', liked ? '1' : '0'); } catch (e) {}
+      if (liked && !reduceMotion){
+        const r = heart.getBoundingClientRect();
+        for (let i = 0; i < 8; i++){
+          const b = document.createElement('span');
+          b.className = 'heart-burst';
+          b.textContent = i % 2 ? '✦' : '♥';
+          const a = (Math.PI * 2 * i) / 8;
+          b.style.left = (r.left + r.width / 2) + 'px';
+          b.style.top = (r.top + r.height / 2) + 'px';
+          b.style.setProperty('--dx', Math.cos(a) * 34 + 'px');
+          b.style.setProperty('--dy', Math.sin(a) * 34 + 'px');
+          document.body.appendChild(b);
+          setTimeout(() => b.remove(), 850);
+        }
+      }
+    });
+  }
+
+  // Toverstafje: gouden glitterspoor achter de muis (niet op gsm of tablet)
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion){
+    let last = 0;
+    document.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const now = performance.now();
+      if (now - last < 45) return;
+      last = now;
+      const s = document.createElement('span');
+      const isStar = Math.random() < 0.35;
+      s.className = 'wand-sparkle' + (isStar ? ' star' : '');
+      if (isStar) s.textContent = '✦';
+      s.style.left = (e.clientX - 1) + 'px';
+      s.style.top = (e.clientY - 1) + 'px';
+      s.style.setProperty('--dx', (Math.random() * 16 - 8) + 'px');
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 750);
+    }, { passive: true });
+  }
 });

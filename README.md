@@ -42,6 +42,16 @@ Verklein foto's eerst tot maximaal 1800 pixels breed of hoog. Foto's rechtstreek
 **Bestanden uploaden**
 Open de repository op github.com, klik **Add file → Upload files**, sleep de aangepaste bestanden erin en klik **Commit changes**. Na 1 à 2 minuten staat de nieuwe versie online.
 
+## Leuke extra's
+- **Hartje** onderaan elke pagina: klikken kleurt het roze (wordt onthouden in de browser).
+- **Toverstafje** als muisaanwijzer met een spoor van gouden glitter (enkel op computer).
+- **Strass-glinstering** over de foto's in de galerij als je er met de muis over gaat.
+- **Seizoenen:** van 1 december tot 6 januari sneeuwt het glitter, rond carnaval (ruim twee weken voor Aswoensdag, en op 11/11) valt er confetti. Dat gaat vanzelf aan en uit.
+  Uittesten: zet `?seizoen=kerst` of `?seizoen=carnaval` achter het adres, bv. `.../RoxyRyan/?seizoen=kerst`.
+- **Geheim:** typ ergens op de site `roxy`, of tik 5 keer snel op het logo onderaan, voor een pluimenregen.
+
+Wie op zijn toestel "minder beweging" heeft ingesteld, krijgt de bewegende effecten niet te zien.
+
 ## Google
 De site is geverifieerd in Google Search Console. Dien daar eenmalig de sitemap in (menu **Sitemaps**, adres `sitemap.xml`), dan vindt Google alle pagina's sneller. Voeg je later een nieuwe pagina toe, zet ze dan ook in `sitemap.xml`.
 

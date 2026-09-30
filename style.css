@@ -288,7 +288,7 @@ button{ font-family: inherit; cursor: pointer; }
 
 /* ---------- toverstafje als cursor (enkel met muis) ---------- */
 @media (hover: hover) and (pointer: fine){
-  html, a, button, summary, label, .gallery-item, .event-flyer{
+  html, a, button, summary, label, html .gallery-item, html .event-flyer{
     cursor: url("images/wand.png") 7 7, auto;
   }
   input, textarea{ cursor: text; }
@@ -308,8 +308,59 @@ button{ font-family: inherit; cursor: pointer; }
   from{ opacity: 1; transform: translate(0,0) scale(1); }
   to{ opacity: 0; transform: translate(var(--dx), 18px) scale(.3); }
 }
+/* ---------- strass-glinstering op galerijfoto's ---------- */
+html .gallery-item{ position: relative; }
+.gallery-item::after{
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 32%, rgba(255,246,216,.35) 44%, rgba(255,255,255,.8) 50%, rgba(255,246,216,.35) 56%, transparent 68%);
+  mix-blend-mode: screen; transform: translateX(-130%);
+}
+.gallery-item:hover::after{ animation: strass-shine 1s ease-out; }
+@keyframes strass-shine{ from{ transform: translateX(-130%); } to{ transform: translateX(130%); } }
+.strass-twinkle{
+  position: absolute; pointer-events: none; z-index: 2;
+  color: #fff; font-size: 14px; line-height: 1;
+  text-shadow: 0 0 6px #fff, 0 0 12px rgba(242,201,110,.9);
+  animation: strass-twinkle .9s ease-in-out forwards;
+}
+@keyframes strass-twinkle{
+  0%{ opacity: 0; transform: scale(.2) rotate(0deg); }
+  45%{ opacity: 1; transform: scale(1.1) rotate(45deg); }
+  100%{ opacity: 0; transform: scale(.2) rotate(90deg); }
+}
+
+/* ---------- seizoenen: glittersneeuw en confetti ---------- */
+.season-layer{ position: fixed; inset: 0; pointer-events: none; z-index: 60; overflow: hidden; }
+.season-bit{
+  position: absolute; top: -20px; will-change: transform;
+  animation: season-fall linear forwards;
+}
+.season-bit.snow{
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 35%, rgba(242,201,110,.9) 60%, transparent 72%);
+  box-shadow: 0 0 6px rgba(255,255,255,.7);
+}
+.season-bit.confetti{ border-radius: 2px; }
+@keyframes season-fall{
+  from{ transform: translate(0, 0) rotate(0deg); }
+  to{ transform: translate(var(--drift), 110vh) rotate(var(--spin)); }
+}
+
+/* ---------- geheim woord: pluimenregen ---------- */
+.feather{
+  position: fixed; top: -80px; pointer-events: none; z-index: 70;
+  animation: feather-fall linear forwards;
+}
+.feather svg{ display: block; animation: feather-sway 1.6s ease-in-out infinite alternate; }
+@keyframes feather-fall{ to{ transform: translateY(calc(100vh + 120px)); } }
+@keyframes feather-sway{
+  from{ transform: translateX(-18px) rotate(-25deg); }
+  to{ transform: translateX(18px) rotate(25deg); }
+}
+
 @media (prefers-reduced-motion: reduce){
-  .wand-sparkle, .heart-burst{ display: none; }
+  .wand-sparkle, .heart-burst, .strass-twinkle, .season-layer{ display: none; }
+  .gallery-item:hover::after{ animation: none; }
   .footer-bottom .heart.is-on svg{ animation: none; }
 }
 

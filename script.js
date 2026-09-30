@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('https://abacus.jasoncameron.dev/hit/' + ns + '/site-visits-v2')
       .then(r => r.json())
       .then(d => { countEl.textContent = d.value.toLocaleString('nl-BE'); })
-      .catch(() => { countEl.textContent = '—'; });
+      .catch(() => { countEl.textContent = '…'; });
   }
 
   // Agenda: verlopen shows automatisch verbergen op basis van data-end-date

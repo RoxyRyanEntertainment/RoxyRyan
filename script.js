@@ -133,26 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Toverstafje: gouden glitterspoor achter de muis (niet op gsm of tablet)
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion){
-    let last = 0;
-    document.addEventListener('pointermove', (e) => {
-      if (e.pointerType !== 'mouse') return;
-      const now = performance.now();
-      if (now - last < 45) return;
-      last = now;
-      const s = document.createElement('span');
-      const isStar = Math.random() < 0.35;
-      s.className = 'wand-sparkle' + (isStar ? ' star' : '');
-      if (isStar) s.textContent = '✦';
-      s.style.left = (e.clientX - 1) + 'px';
-      s.style.top = (e.clientY - 1) + 'px';
-      s.style.setProperty('--dx', (Math.random() * 16 - 8) + 'px');
-      document.body.appendChild(s);
-      setTimeout(() => s.remove(), 750);
-    }, { passive: true });
-  }
-
   // Strass-glinstering: lichtstreep en twinkelende sterretjes over galerijfoto's
   if (window.matchMedia('(hover: hover)').matches && !reduceMotion){
     document.querySelectorAll('.gallery-item').forEach(item => {
@@ -173,57 +153,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Seizoenen: glittersneeuw rond Kerstmis, confetti rond carnaval
-  // Uittesten kan met ?seizoen=kerst of ?seizoen=carnaval achter het adres
-  const season = (() => {
-    const forced = new URLSearchParams(location.search).get('seizoen');
-    if (forced === 'kerst' || forced === 'carnaval' || forced === 'geen') return forced;
-    const d = new Date(); d.setHours(0, 0, 0, 0);
-    const y = d.getFullYear(), m = d.getMonth() + 1, day = d.getDate();
-    if (m === 12 || (m === 1 && day <= 6)) return 'kerst';        // 1 december tot Driekoningen
-    if (m === 11 && day === 11) return 'carnaval';                 // 11/11: start carnavalsseizoen
-    // Pasen berekenen, Aswoensdag = Pasen min 46 dagen
-    const a = y % 19, b = Math.floor(y / 100), c = y % 100, dd = Math.floor(b / 4), e = b % 4,
-          f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - dd - g + 15) % 30,
-          i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7,
-          mm = Math.floor((a + 11 * h + 22 * l) / 451), em = Math.floor((h + l - 7 * mm + 114) / 31),
-          ed = ((h + l - 7 * mm + 114) % 31) + 1;
-    const ash = new Date(y, em - 1, ed - 46);
-    const start = new Date(ash); start.setDate(ash.getDate() - 16);
-    if (d >= start && d <= ash) return 'carnaval';                 // ruim twee weken voor tot en met Aswoensdag
-    return 'geen';
-  })();
-  if (season !== 'geen' && !reduceMotion){
-    const layer = document.createElement('div');
-    layer.className = 'season-layer';
-    layer.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(layer);
-    const colors = ['#ff2f9e', '#c9a15c', '#e6cd94', '#8e3fd1', '#ffffff'];
-    const isSmall = window.innerWidth < 700;
-    const spawn = () => {
-      if (document.hidden || layer.childElementCount > (season === 'kerst' ? (isSmall ? 18 : 35) : (isSmall ? 6 : 12))) return;
-      const bit = document.createElement('span');
-      const dur = season === 'kerst' ? 9 + Math.random() * 7 : 9 + Math.random() * 5;
-      bit.className = 'season-bit ' + (season === 'kerst' ? 'snow' : 'confetti');
-      if (season === 'kerst'){
-        const s = 3 + Math.random() * 5;
-        bit.style.width = bit.style.height = s + 'px';
-        bit.style.opacity = 0.5 + Math.random() * 0.5;
+  // Icoontjes op de homepagina kleuren goud bij klikken
+  document.querySelectorAll('.feature').forEach(f => {
+    f.addEventListener('click', (e) => {
+      if (f.tagName === 'A' && !e.metaKey && !e.ctrlKey && !e.shiftKey){
+        e.preventDefault();
+        f.classList.add('is-gold');
+        setTimeout(() => { location.href = f.href; }, reduceMotion ? 0 : 280);
       } else {
-        bit.style.width = (4 + Math.random() * 3) + 'px';
-        bit.style.height = (6 + Math.random() * 4) + 'px';
-        bit.style.opacity = 0.55 + Math.random() * 0.35;
-        bit.style.background = colors[Math.floor(Math.random() * colors.length)];
+        f.classList.toggle('is-gold');
       }
-      bit.style.left = (Math.random() * 100) + 'vw';
-      bit.style.animationDuration = dur + 's';
-      bit.style.setProperty('--drift', (Math.random() * 120 - 60) + 'px');
-      bit.style.setProperty('--spin', (season === 'kerst' ? 0 : Math.random() * 360 - 180) + 'deg');
-      layer.appendChild(bit);
-      setTimeout(() => bit.remove(), dur * 1000 + 100);
-    };
-    setInterval(spawn, season === 'kerst' ? 420 : 900);
-  }
+    });
+  });
+  window.addEventListener('pageshow', () => {
+    document.querySelectorAll('.feature.is-gold').forEach(f => f.classList.remove('is-gold'));
+  });
 
   // Geheim woord: typ "roxy" (of tik 5 keer op het logo onderaan) voor een pluimenregen
   const featherRain = () => {

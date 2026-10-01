@@ -109,6 +109,17 @@
   border: 1px solid var(--line);
   font-size: 1.7rem;
   color: var(--gold-light);
+  transition: background .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+}
+.feature{ cursor: pointer; }
+.feature:hover .feature-icon{ border-color: var(--gold); box-shadow: 0 0 14px rgba(201,161,92,.25); }
+.feature:active .feature-icon,
+.feature.is-gold .feature-icon{
+  background: linear-gradient(145deg, #f2dca6, var(--gold) 55%, #a27a3a);
+  border-color: var(--gold-light);
+  color: var(--black);
+  box-shadow: 0 0 22px rgba(230,205,148,.55);
+  transform: scale(1.06);
 }
 .feature-icon svg{ width: 28px; height: 28px; }
 .feature h3{

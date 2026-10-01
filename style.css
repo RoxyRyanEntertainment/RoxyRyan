@@ -286,28 +286,6 @@ button{ font-family: inherit; cursor: pointer; }
   to{ opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.4); }
 }
 
-/* ---------- toverstafje als cursor (enkel met muis) ---------- */
-@media (hover: hover) and (pointer: fine){
-  html, a, button, summary, label, html .gallery-item, html .event-flyer{
-    cursor: url("images/wand.png") 7 7, auto;
-  }
-  input, textarea{ cursor: text; }
-}
-.wand-sparkle{
-  position: fixed; pointer-events: none; z-index: 9999;
-  width: 8px; height: 8px; margin: -4px 0 0 -4px;
-  background: radial-gradient(circle, #fff6d8 0 20%, #f2c96e 45%, transparent 70%);
-  animation: wand-sparkle .7s ease-out forwards;
-}
-.wand-sparkle.star{
-  width: auto; height: auto; margin: 0; background: none;
-  color: #f2c96e; font-size: 10px; line-height: 1;
-  text-shadow: 0 0 4px rgba(242,201,110,.9);
-}
-@keyframes wand-sparkle{
-  from{ opacity: 1; transform: translate(0,0) scale(1); }
-  to{ opacity: 0; transform: translate(var(--dx), 18px) scale(.3); }
-}
 /* ---------- strass-glinstering op galerijfoto's ---------- */
 html .gallery-item{ position: relative; }
 .gallery-item::after{
@@ -329,23 +307,6 @@ html .gallery-item{ position: relative; }
   100%{ opacity: 0; transform: scale(.2) rotate(90deg); }
 }
 
-/* ---------- seizoenen: glittersneeuw en confetti ---------- */
-.season-layer{ position: fixed; inset: 0; pointer-events: none; z-index: 60; overflow: hidden; }
-.season-bit{
-  position: absolute; top: -20px; will-change: transform;
-  animation: season-fall linear forwards;
-}
-.season-bit.snow{
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff 0 35%, rgba(242,201,110,.9) 60%, transparent 72%);
-  box-shadow: 0 0 6px rgba(255,255,255,.7);
-}
-.season-bit.confetti{ border-radius: 2px; }
-@keyframes season-fall{
-  from{ transform: translate(0, 0) rotate(0deg); }
-  to{ transform: translate(var(--drift), 110vh) rotate(var(--spin)); }
-}
-
 /* ---------- geheim woord: pluimenregen ---------- */
 .feather{
   position: fixed; top: -80px; pointer-events: none; z-index: 70;
@@ -359,7 +320,7 @@ html .gallery-item{ position: relative; }
 }
 
 @media (prefers-reduced-motion: reduce){
-  .wand-sparkle, .heart-burst, .strass-twinkle, .season-layer{ display: none; }
+  .heart-burst, .strass-twinkle{ display: none; }
   .gallery-item:hover::after{ animation: none; }
   .footer-bottom .heart.is-on svg{ animation: none; }
 }

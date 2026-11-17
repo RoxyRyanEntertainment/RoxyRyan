@@ -65,14 +65,36 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
   }
 
-  // Visitor counter (footer, every page)
+  // Visitor counter: probeert meerdere gratis tellers na elkaar,
+  // en toont anders het laatst gekende aantal (bewaard in de browser).
   const countEl = document.getElementById('visitor-count');
   if (countEl){
-    const ns = (location.hostname || 'roxyryan-site').replace(/[^a-z0-9]/gi, '-');
-    fetch('https://abacus.jasoncameron.dev/hit/' + ns + '/site-visits-v2')
-      .then(r => r.json())
-      .then(d => { countEl.textContent = d.value.toLocaleString('nl-BE'); })
-      .catch(() => { countEl.textContent = '…'; });
+    const key = 'roxyryan-site-visits';
+    const show = n => { countEl.textContent = Number(n).toLocaleString('nl-BE'); };
+    let last = null;
+    try { last = localStorage.getItem('rr-visits'); } catch (e) {}
+    if (last) show(last);
+    const withTimeout = (url, ms) => {
+      const ctrl = ('AbortController' in window) ? new AbortController() : null;
+      const t = setTimeout(() => ctrl && ctrl.abort(), ms);
+      return fetch(url, ctrl ? { signal: ctrl.signal, cache: 'no-store' } : { cache: 'no-store' })
+        .then(r => { clearTimeout(t); if (!r.ok) throw new Error(r.status); return r.json(); });
+    };
+    const sources = [
+      () => withTimeout('https://abacus.jasoncameron.dev/hit/roxyryanentertainment-github-io/site-visits-v2', 5000).then(d => d.value),
+      () => withTimeout('https://countapi.mileshilliard.com/api/v1/hit/' + key, 5000).then(d => d.value)
+    ];
+    const tryNext = i => {
+      if (i >= sources.length){ if (!last) countEl.textContent = '…'; return; }
+      sources[i]().then(v => {
+        const n = parseInt(v, 10);
+        if (isNaN(n)) throw new Error('geen getal');
+        const best = Math.max(n, parseInt(last || '0', 10));
+        show(best);
+        try { localStorage.setItem('rr-visits', String(best)); } catch (e) {}
+      }).catch(() => tryNext(i + 1));
+    };
+    tryNext(0);
   }
 
   // Agenda: verlopen shows automatisch verbergen op basis van data-end-date
